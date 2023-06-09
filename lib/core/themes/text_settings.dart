@@ -14,4 +14,8 @@ TextTheme textSettings = const TextTheme(
     fontSize: 16,
     color: Colors.white,
   ),
+  bodyLarge: TextStyle(
+    fontSize: 32,
+    color: Colors.white,
+  ),
 );
