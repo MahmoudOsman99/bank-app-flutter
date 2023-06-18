@@ -10,16 +10,17 @@ class defaultButton extends StatelessWidget {
   double height;
   double? fontSize;
   bool? isBold;
+  VoidCallback? onPressed;
 
-  defaultButton({
-    super.key,
-    required this.backgroundColor,
-    this.textColor,
-    required this.height,
-    required this.text,
-    this.fontSize,
-    this.isBold,
-  });
+  defaultButton(
+      {super.key,
+      required this.backgroundColor,
+      this.textColor,
+      required this.height,
+      required this.text,
+      this.fontSize,
+      this.isBold,
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class defaultButton extends StatelessWidget {
                 fontSize: fontSize ?? 20,
                 color: textColor ?? Colors.white),
           ),
-          onPressed: () {},
+          onPressed: onPressed,
         ),
       ),
     );

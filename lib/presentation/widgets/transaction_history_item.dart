@@ -9,7 +9,7 @@ class TransactionHistoryItem extends StatelessWidget {
   int index;
   TransactionHistoryItem({super.key, this.index = 0});
 
-  late DateFormat formatter = DateFormat('yyyy-MMM-dd hh:mm');
+  late DateFormat formatter = DateFormat('yyyy-MMM-dd  hh:mm');
   late String formatted = formatter.format(DateTime.now());
 
   @override
@@ -21,11 +21,20 @@ class TransactionHistoryItem extends StatelessWidget {
         padding: const EdgeInsetsDirectional.only(start: 10),
         child: Row(
           children: [
-            const Icon(
-              Icons.arrow_forward_ios_rounded,
-              color: AppColors.orangeColor,
+            // const Icon(
+            //   Icons.arrow_forward_ios_rounded,
+            //   color: AppColors.orangeColor,
+            // ),
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              maxRadius: 15,
+              child: Image.asset(
+                'assets/images/right-arrow2.png',
+                height: 20,
+                width: 20,
+              ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 5,
             ),
             SizedBox(
@@ -88,7 +97,7 @@ class TransactionHistoryItem extends StatelessWidget {
                               formatted,
                               overflow: TextOverflow.ellipsis,
                               style: context.textList.displayMedium!.copyWith(
-                                color: Colors.black,
+                                color: AppColors.greyColor,
                                 fontSize: 16,
                               ),
                             ),

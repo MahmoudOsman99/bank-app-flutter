@@ -1,4 +1,5 @@
 import 'package:bank_app/core/extensions/app_extensions.dart';
+import 'package:bank_app/core/routes.dart';
 import 'package:bank_app/presentation/screens/login_screen.dart';
 import 'package:bank_app/presentation/widgets/bottom_sheet.dart';
 import 'package:bank_app/utils/app_colors.dart';
@@ -13,7 +14,7 @@ class OnBoardingScreen extends StatelessWidget {
     return Stack(
       children: [
         Image.asset(
-          "assets/images/backImage.jpg",
+          'assets/images/backImage.jpg',
           height: context.height,
           width: context.width,
           fit: BoxFit.cover,
@@ -22,11 +23,11 @@ class OnBoardingScreen extends StatelessWidget {
           appBar: AppBar(
             forceMaterialTransparency: true,
           ),
-          backgroundColor: AppColors.mainBlueColor,
+          backgroundColor: Colors.transparent,
           body: SafeArea(
             child: Padding(
               padding: EdgeInsetsDirectional.only(
-                top: context.height * 0.03,
+                top: context.height * 0.07,
                 start: 20,
                 end: 20,
               ),
@@ -34,11 +35,13 @@ class OnBoardingScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      const CircleAvatar(
-                        radius: 100,
+                      CircleAvatar(
+                        radius: 70,
                         backgroundColor: Colors.white,
-                        backgroundImage:
-                            AssetImage('assets/images/right-arrow.png'),
+                        child: Image.asset(
+                          'assets/images/debit-card.png',
+                          width: 80,
+                        ),
                       ),
                       SizedBox(
                         height: context.height * 0.030,
@@ -56,7 +59,7 @@ class OnBoardingScreen extends StatelessWidget {
                       Text(
                         'Need Help?',
                         style: context.textList.bodySmall!.copyWith(
-                          color: Colors.white.withOpacity(0.9),
+                          color: Colors.black,
                         ),
                       ),
                       Row(
@@ -64,13 +67,18 @@ class OnBoardingScreen extends StatelessWidget {
                           Text(
                             'Log in',
                             style: context.textList.displayMedium!.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.orangeColor),
                           ),
                           IconButton(
                             onPressed: () {
-                              navigateTo(LoginScreen(), context);
+                              // navigateTo(LoginScreen(), context);
                               //TODO Show bottom sheet with login and register
+
+                              Navigator.pushNamed(
+                                context,
+                                AppRoutes.loginRoute,
+                              );
                             },
                             icon: const Icon(
                               Icons.arrow_forward_ios,
